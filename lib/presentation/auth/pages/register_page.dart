@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cbt/core/extensions/build_context_ext.dart';
+import 'package:flutter_cbt/data/datasources/auth_local_datasource.dart';
+import 'package:flutter_cbt/data/models/requests/auth_register_request_model.dart';
+import 'package:flutter_cbt/presentation/auth/bloc/bloc/register_bloc.dart';
+import 'package:flutter_cbt/presentation/auth/home/pages/dashboard_page.dart';
 import 'package:flutter_cbt/presentation/auth/pages/login_pages.dart';
 
 import '../../../core/components/buttons.dart';
@@ -18,7 +23,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,20 +56,47 @@ class _RegisterPageState extends State<RegisterPage> {
             obscureText: true,
           ),
           const SizedBox(height: 24.0),
-          Button.filled(
-            onPressed: () {
-              Future.delayed(
-                const Duration(seconds: 2),
-                () => context.pushReplacement(const LoginPage()),
+          BlocConsumer<RegisterBloc, RegisterState>(
+            listener: (context, state) {
+              state.maybeWhen(
+                orElse: () {},
+                success: (state) {
+                  AuthLocalDatasource().saveAuthData(state);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('REGISTER SUCCESS'),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                  context.pushReplacement(const DashboardPage());
+                },
               );
-              // showDialog(
-              //   context: context,
-              //   builder: (BuildContext context) {
-              //     return const RegisterSuccessDialog();
-              //   },
-              // );
             },
-            label: 'REGISRER',
+            builder: (context, state) {
+              return state.maybeWhen(
+                orElse: () {
+                  return Button.filled(
+                    onPressed: () {
+                      final dataRequest = RegisterRequestModel(
+                        name: usernameController.text,
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+
+                      context
+                          .read<RegisterBloc>()
+                          .add(RegisterEvent.register(dataRequest));
+                    },
+                    label: 'REGISTER',
+                  );
+                },
+                loading: () {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
+              );
+            },
           ),
           const SizedBox(height: 24.0),
           GestureDetector(

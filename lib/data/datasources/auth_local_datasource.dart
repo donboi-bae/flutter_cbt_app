@@ -22,4 +22,6 @@ class AuthLocalDatasource{
       return null;
     }
   }
+
+  void saveAuthData(state) {}
 }
