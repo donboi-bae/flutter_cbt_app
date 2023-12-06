@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cbt/core/extensions/build_context_ext.dart';
 import 'package:flutter_cbt/presentation/onboarding/models/onboarding_model.dart';
 
-import '../../core/assets/assets.gen.dart';
-import '../../core/components/buttons.dart';
-import '../auth/pages/login_pages.dart';
+import '../../../core/assets/assets.gen.dart';
+import '../../../core/components/buttons.dart';
+import '../../auth/pages/login_page.dart';
 import '../widgets/onboarding_content.dart';
 import '../widgets/onboarding_indicator.dart';
 

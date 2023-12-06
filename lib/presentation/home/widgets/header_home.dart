@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cbt/core/extensions/build_context_ext.dart';
 
-import '../../../../core/assets/assets.gen.dart';
-import '../../../../core/components/search_input.dart';
-import '../../../../core/constants/colors.dart';
+import '../../../core/assets/assets.gen.dart';
+import '../../../core/components/search_input.dart';
+import '../../../core/constants/colors.dart';
 
 class HeaderHome extends StatelessWidget {
   const HeaderHome({super.key});

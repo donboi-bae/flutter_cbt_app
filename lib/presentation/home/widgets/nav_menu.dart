@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/colors.dart';
+import '../../../core/constants/colors.dart';
 
 class NavMenu extends StatelessWidget {
   final String iconPath;

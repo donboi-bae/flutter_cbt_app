@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_cbt/presentation/auth/bloc/bloc/register_bloc.dart';
-import 'package:flutter_cbt/presentation/pages/onboarding_page.dart';
+import 'package:flutter_cbt/presentation/auth/bloc/register/register_bloc.dart';
+import 'package:flutter_cbt/presentation/onboarding/pages/onboarding_page.dart';
 
 void main() {
   runApp(const MyApp());

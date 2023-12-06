@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cbt/core/extensions/build_context_ext.dart';
 import 'package:flutter_cbt/data/datasources/auth_local_datasource.dart';
-import 'package:flutter_cbt/data/models/requests/auth_register_request_model.dart';
-import 'package:flutter_cbt/presentation/auth/bloc/bloc/register_bloc.dart';
-import 'package:flutter_cbt/presentation/auth/home/pages/dashboard_page.dart';
-import 'package:flutter_cbt/presentation/auth/pages/login_pages.dart';
+import 'package:flutter_cbt/data/models/request/register_request_model.dart';
+import 'package:flutter_cbt/presentation/auth/bloc/register/register_bloc.dart';
+import 'package:flutter_cbt/presentation/auth/pages/login_page.dart';
+import 'package:flutter_cbt/presentation/home/pages/dashboard_page.dart';
 
 import '../../../core/components/buttons.dart';
 import '../../../core/components/custom_text_field.dart';

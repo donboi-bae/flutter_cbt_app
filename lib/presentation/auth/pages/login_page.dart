@@ -6,7 +6,7 @@ import 'package:flutter_cbt/presentation/auth/pages/register_page.dart';
 import '../../../core/components/buttons.dart';
 import '../../../core/components/custom_text_field.dart';
 import '../../../core/constants/colors.dart';
-import '../home/pages/dashboard_page.dart';
+import '../../home/pages/dashboard_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

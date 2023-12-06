@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/assets/assets.gen.dart';
+import '../../../core/assets/assets.gen.dart';
 import '../widgets/header_home.dart';
 import '../widgets/menu_home.dart';
 import '../widgets/title_section.dart';

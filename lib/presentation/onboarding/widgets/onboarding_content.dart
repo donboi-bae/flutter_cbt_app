@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../onboarding/models/onboarding_model.dart';
+import '../models/onboarding_model.dart';
 
 class OnboardingContent extends StatelessWidget {
   final PageController pageController;
