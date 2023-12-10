@@ -7,6 +7,7 @@ import 'package:flutter_cbt/presentation/home/pages/home_page.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/constants/colors.dart';
+import '../../auth/bloc/logout/logout_bloc.dart';
 import '../widgets/nav_menu.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -25,9 +26,7 @@ class _DashboardPageState extends State<DashboardPage> {
     const Center(
       child: Text('Notif'),
     ),
-    const Center(
-      child: Text('Profile'),
-    ),
+    const LogoutWidget(),
   ];
 
   void _onItemTapped(int index) {
@@ -75,6 +74,30 @@ class _DashboardPageState extends State<DashboardPage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class LogoutWidget extends StatefulWidget {
+  const LogoutWidget({
+    super.key,
+  });
+
+  @override
+  State<LogoutWidget> createState() => _LogoutWidgetState();
+}
+
+class _LogoutWidgetState extends State<LogoutWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ElevatedButton(
+          onPressed: () {
+            context.read<LogoutBloc>().add(const LogoutEvent.logout());
+            AuthLocalDatasource().removeAuthData();
+            context.pushReplacement(const LoginPage());
+          },
+          child: const Text('Logout')),
     );
   }
 }

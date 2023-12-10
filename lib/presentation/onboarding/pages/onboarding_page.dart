@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cbt/core/extensions/build_context_ext.dart';
+import 'package:flutter_cbt/data/datasources/onboarding_local_datasource.dart';
 import 'package:flutter_cbt/presentation/onboarding/models/onboarding_model.dart';
 
 import '../../../core/assets/assets.gen.dart';
@@ -43,6 +44,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     pageController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,6 +87,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       currentPage++;
                       setState(() {});
                     } else {
+                      OnboardingLocalDatasource().saveOnboadingPassed();
                       navigate();
                     }
                   },
